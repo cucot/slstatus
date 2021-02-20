@@ -14,7 +14,7 @@ static const char unknown_str[] = "n/a";
  *
  * battery_perc        battery percentage              battery name (BAT0)
  *                                                     NULL on OpenBSD/FreeBSD
- * battery_state       battery charging state          battery name (BAT0)
+ * battery_state       battery charging state          battery name (BAT1)
  *                                                     NULL on OpenBSD/FreeBSD
  * battery_remaining   battery remaining HH:MM         battery name (BAT0)
  *                                                     NULL on OpenBSD/FreeBSD
@@ -65,5 +65,7 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	{ battery_perc, " |  %s", "BAT0"},
+	{ datetime, "%s",           "%a %h %d %HH:%MM" },
+	{ username, " |  %s", NULL},
 };
